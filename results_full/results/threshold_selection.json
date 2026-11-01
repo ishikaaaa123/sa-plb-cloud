@@ -1,0 +1,10 @@
+{
+  "chosen_threshold_s": 4.0,
+  "mean_response_ms_by_threshold": {
+    "0.5": 4649.8041781373695,
+    "1.0": 3860.5403852056324,
+    "2.0": 2226.783245663931,
+    "4.0": 1487.0401861249568
+  },
+  "selected_on": "validation seeds [100, 101] only"
+}
