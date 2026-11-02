@@ -27,7 +27,7 @@ st.set_page_config(
 )
 
 ROOT = Path(__file__).parent
-DATA = ROOT / "results_full" / "data"
+DATA = ROOT / "results_corrected" / "data"
 
 st.title("Staleness-Aware Predictive Load Balancer")
 st.caption("Interactive hybrid simulation and performance monitoring")
