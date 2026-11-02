@@ -1,0 +1,13 @@
+file,field,origin,how_produced
+requests.csv,arrival_time,SIMULATED,Poisson arrivals; rate follows Zenodo per-minute record counts (sqrt-compressed)
+requests.csv,task_size_kb / request_type,SIMULATED,"log-normal size, GET/POST/PUT mix (config.py)"
+replica_metrics.csv,collected_at / available_at,SIMULATED,monitor sample time / time it reaches the balancer (periodic + random delay + occasional stalls)
+replica_metrics.csv,"active_requests, queue_length, cpu_pct, mem_pct, recent_avg_response_ms",SIMULATED,"true replica state at collected_at, computed by the queue model (+ small noise on cpu/mem)"
+routing_results.csv,"selected_replica_id, policy_branch, fallback_used",POLICY OUTPUT,decision made by RR / WRR / ML / SA-PLB
+routing_results.csv,"metric_age_max_s, metric_age_mean_s",DERIVED,decision_time - collected_at of the observation each policy actually saw
+routing_results.csv,predicted_*,MODEL OUTPUT,regressor prediction (ms); empty when the decision did not use ML
+routing_results.csv,"queue_wait_ms, service_ms, actual_response_ms, completion_time",SIMULATED,exact FCFS multi-server queue; response = wait + service
+training_log.csv,all feature columns + response_ms,SIMULATED,random-routing logging run; features = decision-time observations only
+training_log.csv,obs_age_s,DERIVED,logged for analysis; NOT a model feature
+"(hidden, not exported)","service noise, interference slowdown",SIMULATED,never visible to any router or to the model
+(everything),no field is a real measurement,-,all values come from simulation driven by a public load SHAPE

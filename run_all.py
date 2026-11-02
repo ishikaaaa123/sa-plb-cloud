@@ -33,7 +33,7 @@ log = lambda *a: print(time.strftime("%H:%M:%S"), *a, flush=True)
 cfg = SimConfig()
 EVAL_MIN, TRAIN_MIN, PEAK_UTIL = (8, 8, 0.85) if args.quick else (20, 20, 0.85)
 TRAIN_DELAY = 0.10   # model is trained under HEALTHY monitoring, then deployed under degraded monitoring
-_u, _i = [0.55, 0.75, 0.95, 0.65, 0.85, 0.60, 0.80, 0.70], [0.0, 0.10, 0.20, 0.10, 0.0, 0.20, 0.10, 0.0]
+_u, _i = [0.55, 0.75, 0.95, 0.65, 0.85, 0.60, 0.80, 0.80], [0.0, 0.10, 0.20, 0.10, 0.0, 0.20, 0.10, 0.10]
 TRAIN_PERIODS = [(_u[k], _i[k], 900 + k) for k in range(8)]
 THRESHOLDS = [0.5, 1.0, 2.0, 4.0]
 VAL_SEEDS = [100] if args.quick else [100, 101]
