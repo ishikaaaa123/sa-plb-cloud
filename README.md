@@ -1,11 +1,8 @@
 # SA-PLB: Staleness-Aware Predictive Load Balancing under Delayed Monitoring
 
-SA-PLB is a research prototype that studies whether a load balancer can
-make safer routing decisions when monitoring information may be delayed.
+SA-PLB is a research prototype that studies whether a load balancer can make safer routing decisions when monitoring information may be delayed.
 
-The system uses a machine-learning (ML) model to estimate the response
-time of each replica. Before trusting those predictions, SA-PLB checks
-how old the monitoring observations are:
+The system uses a machine-learning (ML) model to estimate the response time of each replica. Before trusting those predictions, SA-PLB checks how old the monitoring observations are:
 
 -   **Fresh monitoring data:** use the ML prediction and route to the
     replica with the lowest predicted response time.
